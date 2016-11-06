@@ -36,10 +36,4 @@ class CNVSegment(object):
 class StructureVariant(object):
     def __init__(self, chromosome, sischrom, start, end, name, TE_induce, tepair, tebreakpoint, remnant, strand):
         
-
-# LargeSegment.java
-
-
-# TandemDup.java
-class TandemDup(StructureVariant):
-                    
+                 
