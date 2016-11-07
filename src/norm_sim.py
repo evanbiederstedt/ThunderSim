@@ -47,12 +47,6 @@ parser.add_argument("reference-file", metavar="n", description = "Specify the na
 parser.add_argument("file-prefix", metavar="a", description = "Specify the prefix for output file to differentiate each run")
 args = parser.parse_args()
 
-# InitializeChromLen.java
-
-class InitalizeChromLen():
-    chrLenArr = int(24)
-    def generateChrLen()
-
 
 
 # Genotype.java
@@ -77,3 +71,15 @@ class SisterChrom(Enum):
 
 
 # MutRec.java
+class MutRec(object):
+    def __init__(self, position, reference, alt):
+        self.position = position
+        self.reference = reference
+        self.alt = alt
+
+    def stringify(self):
+        rec = position+"\t"+"."+"\t"+reference+"\t"+alt+"\t"+"."+ "\t" + "." + "\t" + "." + "\t" + "GT" +"\t"
+        return rec
+
+# InitializeChromLen.java
+class InitializeCHrom
