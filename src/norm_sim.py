@@ -56,7 +56,7 @@ class InitalizeChromLen():
 
 
 # Genotype.java
-# Enum for encapsulating a genotyp {homozygous, heterozygous}
+# Enum for encapsulating a genotype {homozygous, heterozygous}
 
 from enum import Enum
 class Genotype(Enum):
@@ -64,7 +64,7 @@ class Genotype(Enum):
     HETERO = "R"
 
 # SisterChrom.java
-# Enum for encapsulating a chromatin{chromatinA, chromatinB}
+# Enum for encapsulating a chromatin {chromatinA, chromatinB}
 
 from enum import Enum
 class SisterChrom(Enum):
@@ -74,3 +74,6 @@ class SisterChrom(Enum):
     CHMTIN_D = "D"
     CHMTIN_E = "E"
     CHMTIN_F = "F"
+
+
+# MutRec.java
