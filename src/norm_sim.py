@@ -2,6 +2,7 @@
 
 
 
+
 # SimulationParameters.java
 class Simulation():
     def __init__(self, snv_rate = 0.001, indel_rate = 0.0003, transition_rate = 0.65, hetero_homo_ratio = 2.0, insert_percent = 0.5, indel_mean = 1.0, output_dir, chrlenpath, refpath, prefix="normal"):
@@ -69,17 +70,94 @@ class SisterChrom(Enum):
     CHMTIN_E = "E"
     CHMTIN_F = "F"
 
-
 # MutRec.java
+
 class MutRec(object):
-    def __init__(self, position, reference, alt):
+    def __init__(self, position, reference, alt, gt, gentype, sisChrom):
         self.position = position
         self.reference = reference
         self.alt = alt
-
+        self.gt = gt
+        self.gentype = gentype
+        self.sisChrom = sisChrom
+    
     def stringify(self):
-        rec = position+"\t"+"."+"\t"+reference+"\t"+alt+"\t"+"."+ "\t" + "." + "\t" + "." + "\t" + "GT" +"\t"
+        rec = self.pos + "\t" + "." + "\t" + self.ref + "\t" + self.alt + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "GT" + "\t"
+        if self.gentype == Genotype.HOMO:
+            gt = "1|1"
+        elif self.sisChrom == SisterChrom.CHMTIN_A:
+            gt = "1|0"
+        else:
+            gt = "0|1"
+        rec += gt
         return rec
+    
+    
+    def compareTo(self, rec):
+        if self.pos < rec.pos:
+            return -1
+        else:
+            return 1
+
+# recommended by doc's for compareTo()
+# def compareTo(self, other):
+#    return ((self > other) - (self < other))
+
+
+# SequenceRetriever.java
+
+class SequenceRetriever:
+    def __init__(self, refseqfile):
+
+    def getSequenceFragment(self, chrom, start, end):
+        bases = None
+        rseq = self.getSu
+
+
 
 # InitializeChromLen.java
 class InitializeCHrom
+
+
+
+# SimulateIndel.java
+
+import scipy
+#
+# scipy.stats.expon
+# scipy.stats.poisson
+#
+
+class SimulateIndel(object):
+    def __init__(self, )
+
+
+
+#SnvIndelSimulator.java
+
+class SimulateSNV(object):
+    """ generates mutations in a sequence"""
+
+
+def getChromLength(self, chr, chrlenlist):
+    self.chr = chr
+    self.chrlenlist = chrlenlist
+
+
+
+# Initialize Chromosome length
+
+class InitializeChromLen(object):
+    
+    def __init__(self, chrLenArr, chrlenfile):
+        self.chrLenArr = chrLenArr
+        self.chrlenfile = chrlenfile
+
+
+
+
+
+
+
+
+
