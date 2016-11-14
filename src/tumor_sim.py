@@ -36,4 +36,24 @@ class CNVSegment(object):
 class StructureVariant(object):
     def __init__(self, chromosome, sischrom, start, end, name, TE_induce, tepair, tebreakpoint, remnant, strand):
         
-                 
+
+# LargeSegment.java
+
+
+# TandemDup.java
+class TandemDup(StructureVariant):
+                    
+
+# Translocation.java
+
+class Translocation(object):
+    def __init__(self, chr1, chr2, brkpt1, brkpt2, bal, name):
+        self.chr1 = chr1
+        self.chr2 = chr2
+        self.brkpt1 = brkpt1
+        self.brkpt2 = brkpt2
+        self.bal = bal
+        self.name = name
+                    
+    def stringify(self):
+        return chr1 + "\t" + brkpt1 + "\t" + chr2 + "\t" + brkpt2 + "\t" + name + "\n"
