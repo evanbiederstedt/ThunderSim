@@ -57,3 +57,71 @@ class Translocation(object):
                     
     def stringify(self):
         return chr1 + "\t" + brkpt1 + "\t" + chr2 + "\t" + brkpt2 + "\t" + name + "\n"
+                
+# SimulateRegularSV.java
+                    
+class SimulateRegularSV(object):
+                    
+    @classmethod
+    def constructRegulatVariant(cls, anchorChr, chr, sisidx, segmentidx, start, end, parameter, run, seghash, chrnum):
+        homonum = seghash.get(chr).size()  # what is this? seghash.get()?
+        meanTdtime = parameter.ploidity
+        maxTdsize = parameter.maxtdsize
+        minDelsize = parameter.mindelsize
+        hethomratio = parameter.heterhomoratio
+        copyneutralLOHrate = parameter.copyneutral_LOH_rate
+        expGen = np.random.exponential(1/meanTdtime)
+        # 0: tandemDup
+        # 1: deletion
+        # 2: inversion(no CN change)
+        # 3: insertion (same or different chromosome, cut or copy paste)
+        svtype = np.random.randint(4)
+        segmentLen = end - start
+        if segmentLen > maxTdsize:
+            while svtype == 0:
+                svtype = np.random.randint(4)
+        elif segmentLen < minDelsize:
+            while svtype == 1:
+                svtype = np.random.randint(4)
+        print("Start simulating a regular SV, svtype is " + svtype)
+                    
+                    
+                    
+# Converter.java
+                    
+import main_simulator
+import genotype
+import mutrec
+import sisterchrom
+import d_chr_insertion
+import deletion
+import s_chr_insertion
+import seq_source
+import strand
+import structure_variant
+import tandem_dup
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    

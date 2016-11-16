@@ -2,12 +2,6 @@
 
 
 
-
-# SimulationParameters.java
-class Simulation():
-    def __init__(self, snv_rate = 0.001, indel_rate = 0.0003, transition_rate = 0.65, hetero_homo_ratio = 2.0, insert_percent = 0.5, indel_mean = 1.0, output_dir, chrlenpath, refpath, prefix="normal"):
-
-
 # Picard: https://pypi.python.org/pypi/pyfaidx
 # htslib/pysam
 
@@ -111,8 +105,11 @@ class SequenceRetriever:
 
     def getSequenceFragment(self, chrom, start, end):
         bases = None
-        rseq = self.getSu
-
+        refseq = None
+        # rseq = self.getSubsequenceAt(chrom, start, end)
+        # https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/samtools/reference/ReferenceSequenceFile.html
+        bases = rseq.getBases() # ditto
+        
 
 
 # InitializeChromLen.java
@@ -152,6 +149,22 @@ class InitializeChromLen(object):
     def __init__(self, chrLenArr, chrlenfile):
         self.chrLenArr = chrLenArr
         self.chrlenfile = chrlenfile
+
+
+# SimulationParameters.java
+
+class Simulation():
+    def __init__(self, snv_rate = 0.001, indel_rate = 0.0003, transition_rate = 0.65, hetero_homo_ratio = 2.0, insert_percent = 0.5, indel_mean = 1.0, prefix="normal"):
+        self.snv_rate = snv_rate
+        self.indel_rate = indel_rate
+        self.transition_rate = transition_rate
+        self.hetero_homo_ratio = hetero_homo_ratio
+        self.insert_percent = insert_percent
+        self.indel_mean = indel_mean
+        self.prefix = prefix
+
+
+
 
 
 
