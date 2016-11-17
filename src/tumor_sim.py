@@ -32,6 +32,11 @@ class CNVSegment(object):
         self.end = end
         self.cnv= cnv
 
+    def stringify(self):
+        return chr + "\t" + start + "\t" + end + "\t" + cn + "\n"
+                    
+                    
+                    
 # StructureVariant.java
 class StructureVariant(object):
     def __init__(self, chromosome, sischrom, start, end, name, TE_induce, tepair, tebreakpoint, remnant, strand):
@@ -235,13 +240,19 @@ class Convert(object):
         return snv
                     
 
+             
+import genotype
+import sister_chrom
+                    
+# Deletion.java
+class Delection(StructureVariant):
+    @classmethod
+    def stringify:
+        recStr = chr + "\t" + str(start) + "\t" + str(end) + "\t" + sischrom + "\t" + name + "\t" + str(self.gentype) + "\t" + self.str(copyneutralLOH) + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + TE_induced
+        return recStr
                     
                     
-                    
-                    
-                    
-                    
-                    
+
                     
                     
                     
