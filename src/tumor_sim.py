@@ -251,15 +251,51 @@ class Delection(StructureVariant):
         recStr = chr + "\t" + str(start) + "\t" + str(end) + "\t" + sischrom + "\t" + name + "\t" + str(self.gentype) + "\t" + self.str(copyneutralLOH) + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + TE_induced
         return recStr
                     
+
+# LargeSegment.java
+class LargeSegment(CNVSegment):
+# homochr = SisterChrom()
+# name = str()
                     
+def __init__(self, chrom, st, ed, cnv, homo, nm):
+    super(LargeSegment, self).__init__(cnv)
+    self.homochr = homo
+    self.name = nm
+                    
+def setHomoChrom(self, homo):
+    self.homochr = homo
+                    
+def setName(self, nm):
+    self.name = nm
+                    
+def getHomoChr(self):
+    return self.homochr
+                    
+def getName(self):
+    return self.name
+                    
+def __str__(self):
+    return chr + "\t" + start + "\t" + end + "\t" + cn + "\n"
 
                     
                     
+#SchrInsertion.java
+class SchrInsertion(StructureVariant):
+    # rm_chrtin = SisterChrom()
+    # remote chromatin
+    # rm_brkpnt = int()
+    # remote break point
+    # protected Strand strand;
+    # cut = bool()
+    # cut-paste or copy-paste
+    # novel = bool()
                     
-                    
-                    
-                    
-                    
+    # append novel sequence to the end
+    def __str__(self):
+        return chr + "\t" + String.valueOf(start) + "\t" + String.valueOf(end) + "\t" + sischrom.__str__() + "\t" + name + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + self.rm_chrtin + "\t" + String.valueOf(self.rm_brkpnt) + "\t" + strand.__str__() + "\t" + TE_induced
+        
+    def toSVString(self):
+        return chr + "\t" + String.valueOf(start) + "\t" + chr + "\t" + String.valueOf(self.rm_brkpnt) + "\t" + name
                     
                     
                     
