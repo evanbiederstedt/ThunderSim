@@ -295,7 +295,22 @@ class SchrInsertion(StructureVariant):
         return chr + "\t" + String.valueOf(start) + "\t" + String.valueOf(end) + "\t" + sischrom.__str__() + "\t" + name + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + self.rm_chrtin + "\t" + String.valueOf(self.rm_brkpnt) + "\t" + strand.__str__() + "\t" + TE_induced
         
     def toSVString(self):
-        return chr + "\t" + String.valueOf(start) + "\t" + chr + "\t" + String.valueOf(self.rm_brkpnt) + "\t" + name
+        return chr + "\t" + String.valueOf(start) + "\t" + chr + "\t" + String.valueOf(self.rm_brkpnt) + "\t" + nam
+                    
+# TE.java
+class TE(Comparable):
+    def __init__(self, chr, gStart, gEnd, strand, name, repclass, family, rStart, rEnd, rleft):
+        super(TE, self).__init__()
+        self.chr = chr
+        self.genoStart = gStart
+        self.genoEnd = gEnd
+        self.strand = strand
+        self.repName = name
+        self.repClass = repclass
+        self.repFamily = family
+        self.repStart = rStart
+        self.repEnd = rEnd
+        self.repLeft = rleft
                     
                     
                     
