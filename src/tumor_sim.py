@@ -312,5 +312,12 @@ class TE(Comparable):
         self.repEnd = rEnd
         self.repLeft = rleft
                     
+# Strand.java
+# Enum for encapsulating a strand {+,-}
+                    
+from enum import Enum
+class Strand(Enum):
+    FORWARD = "+"
+    REVERSE = "-"
                     
                     
