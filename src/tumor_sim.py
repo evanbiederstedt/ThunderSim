@@ -320,4 +320,14 @@ class Strand(Enum):
     FORWARD = "+"
     REVERSE = "-"
                     
+# NonVariant.java
+class NonVariant(StructureVariant):
+                    
+    def __str__(self):
+        recStr = chr + "\t" + String.valueOf(start) + "\t" + String.valueOf(end) + "\t" + sischrom + "\t" + name + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "." + "\t" + "."
+        return recStr
+                    
+    def toSVString(self):
+        return chr + "\t" + String.valueOf(start) + "\t" + chr + "\t" + String.valueOf(end) + "\t" + name
+                    
                     
